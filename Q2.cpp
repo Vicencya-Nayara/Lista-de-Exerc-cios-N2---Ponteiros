@@ -1,27 +1,28 @@
-/*Escreva um programa que solicite ao usu·rio que digite uma string e, em seguida, crie uma nova string que seja a cÛpia da string original,
+/*Escreva um programa que solicite ao usu√°rio que digite uma string e,
+ em seguida, crie uma nova string que seja a c√≥pia da string original,
  mas com todas as vogais removidas. O programa deve usar ponteiros para manipular as strings.
 */
 
 #include <stdio.h>
-#include <locale.h>
-#include <string.h>
 
 int main() {
-	setlocale(LC_ALL, "Portuguese_Brazil");
-	
-    char str[100], *pont;
-    
+    char str[100], nova_str[100];
+    int i = 0, j = 0;
+
     printf("Digite uma string: ");
-    
-    fgets(str, sizeof(str), stdin);
-    pont = str;
-    
-    while (*pont) {
-        if (*pont != 'a' && *pont != 'e' && *pont != 'i' && *pont != 'o' && *pont != 'u' &&
-            *pont != 'A' && *pont != 'E' && *pont != 'I' && *pont != 'O' && *pont != 'U') {
-            printf("%c", *pont);
+    fgets(str, 100, stdin);
+
+    for (i = 0; str[i] != '\0'; i++) {
+        if (str[i] != 'a' && str[i] != 'e' && str[i] != 'i' && str[i] != 'o' && str[i] != 'u' &&
+            str[i] != 'A' && str[i] != 'E' && str[i] != 'I' && str[i] != 'O' && str[i] != 'U') {
+            nova_str[j] = str[i];
+            j++;
         }
-        pont++;
     }
+    nova_str[j] = '\0';
+
+    printf("String original: %s", str);
+    printf("Nova string sem vogais: %s", nova_str);
+
     return 0;
 }
